@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using HighPerformanceLogging;
+using Microsoft.Extensions.Logging;
 
 using var loggerFactory = LoggerFactory.Create(builder =>
 {
@@ -6,4 +7,4 @@ using var loggerFactory = LoggerFactory.Create(builder =>
 });
 
 var logger = loggerFactory.CreateLogger<Program>();
-logger.LogInformation("Hello, world from {Class}!", nameof(Program));
+logger.Hello(nameof(Program));
