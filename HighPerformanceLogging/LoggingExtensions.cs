@@ -2,17 +2,12 @@
 
 namespace HighPerformanceLogging;
 
-public static class LoggingExtensions
+public static partial class LoggingExtensions
 {
-    private static readonly Action<ILogger, string, Exception?> hello =
-        LoggerMessage.Define<string>(
-            LogLevel.Information,
-            new EventId(1, "Hello"),
-            "Hello, world from {Class}!"
-        );
-
-    public static void Hello(this ILogger logger, string @class)
-    {
-        hello(logger, @class, null);
-    }
+    [LoggerMessage(
+        EventId = 1,
+        Level = LogLevel.Information,
+        Message = "Hello, world from {Class}!"
+    )]
+    public static partial void Hello(this ILogger logger, string @class);
 }
